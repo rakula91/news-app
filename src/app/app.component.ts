@@ -1,10 +1,33 @@
 import { Component } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    animations: [
+      // slideInAnimation
+    ]
 })
 export class AppComponent {
-  title = 'news-app';
+    public title = 'News';
+    public article = false;
+
+    constructor(router: Router) {
+        router.events.subscribe(() => {
+            if (router.url.startsWith('/article')) {
+                this.article = true;
+            } else {
+                this.article = false;
+            }
+        });
+    }
+
+    public prepareRoute(outlet: RouterOutlet): any {
+        return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+    }
+
+    public goBack(): void {
+        window.history.back();
+    }
 }

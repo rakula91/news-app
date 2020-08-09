@@ -1,0 +1,60 @@
+@import "../../styles.scss";
+.content {
+  padding-top: 0;
+  img {
+    height: 300px;
+    width: 100%;
+  }
+}
+.section-1 {
+  white-space: pre-wrap;
+  line-height: 40px;
+  font-size: 13px;
+  padding: 40px 30px;
+  text-align: right;
+
+  .comment-count {
+    color: $primary-color;
+  }
+}
+@media (max-width: 736px) {
+  .section-1 {
+    white-space: nowrap;
+    text-align: left;
+  }
+}
+.controls {
+  text-align: center;
+  padding: 30px;
+
+  button {
+    border-radius: 20px;
+    background: $primary-color;
+    font-size: 13px;
+    border: none;
+    color: white;
+  }
+}
+.section-2 {
+  margin-top: -40px;
+  padding: 20px 30px;
+  background: white;
+}
+.title {
+  text-transform: uppercase;
+}
+.media {
+  border-bottom: 1px solid lightgray;
+  padding: 20px 0px;
+  margin: 0px 10px;
+
+  .avatar {
+    width: 80px;
+    height: auto;
+  }
+}
+
+.date {
+  font-weight: 100;
+  font-size: 13px;
+}

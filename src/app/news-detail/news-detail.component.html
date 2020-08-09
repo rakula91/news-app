@@ -1,0 +1,34 @@
+<div class="content container">
+    <div *ngIf="(article$ | async) as article">
+        <div class="image-wrapper">
+            <img [src]="article.urlToImage" onerror="this.src='assets/images/placeholder.jpg';" />
+        </div>
+        <div class="row">
+            <div class="section-1 col-lg-3 col-md-3">
+                {{ article.source.name + '\n' }} &nbsp;{{ article.author + '\n' }}&nbsp;
+                {{ article.publishedAt | date: 'MMM dd, yyyy' + '\n'}}&nbsp;
+                <span class="comment-count"> {{ comments.length }} Comments</span>
+            </div>
+            <div class="section-2 col-lg-9 col-md-9 mb-10">
+                <div class="title">{{ article.title }}</div>
+                <div class="description mb-3">{{ article.description }}</div>
+                <div>{{ article.content }}</div>
+                <div class="controls">
+                    <button class="btn btn-primary">Read more</button>
+                </div>
+            </div>
+            <div class="col-lg-12 mt-3">
+                <h3>{{ comments.length }} Comments</h3>
+                <div class="media" *ngFor="let comment of comments">
+                    <img class="mr-3 rounded-circle avatar" [src]="comment.avatar" alt="Avatar">
+                    <div class="media-body">
+                        <h6>{{ comment.name }}
+                            <span class="float-right date">{{ comment.date | date: 'MMM dd, yyyy' }}</span>
+                        </h6>
+                        {{ comment.comment }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

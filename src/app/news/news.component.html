@@ -1,0 +1,30 @@
+<div class="content container">
+    <div class="row">
+        <div class="col-lg-4 col-md-12">
+            <form class="" autocomplete="off">
+                <mat-form-field class="full-width-field">
+                    <input matInput placeholder="Search" name="search" [(ngModel)]="search"
+                        (ngModelChange)="getSearchData()">
+                    <mat-progress-bar mode="indeterminate" *ngIf="showProgress"></mat-progress-bar>
+                </mat-form-field>
+            </form>
+        </div>
+        <div *ngIf="showNoData" class="text-center col-lg-12"> No articles found for "{{ search }}"</div>
+    </div>
+
+    <div class="row article-section">
+        <article class="col-lg-4" *ngFor="let article of articles">
+            <div class="image-wrapper" (click)="goToDetails(article);">
+                <img [src]="article.urlToImage" onerror="this.src='assets/images/placeholder.jpg';" />
+            </div>
+            <div class="article-content">
+                <div>
+                    <span class="author">{{ article.source.name }}</span>
+                    <span class="article-date"> {{ article.publishedAt | date: 'MMM dd, yyyy' }}</span>
+                </div>
+                <div class="title">{{ article.title }}</div>
+                <div class="description">{{ article.description }}</div>
+            </div>
+        </article>
+    </div>
+</div>
