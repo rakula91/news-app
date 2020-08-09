@@ -8,3 +8,7 @@ For more details follow this link - https://www.npmjs.com/package/angular-news-a
 The pages are responsive
 
 People who wants to learn Angular, can use this project as reference for learning purpose
+
+![News List](https://github.com/rakula91/news-app/blob/master/src/assests/images/news-list.png)
+
+![News Details](https://github.com/rakula91/news-app/blob/master/src/assests/images/news-details.png)
